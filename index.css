@@ -1,0 +1,210 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, rgba(71, 168, 210, 0.17), transparent 35%),
+        linear-gradient(180deg, #1f2643 0%, #0749e3 100%);
+    color: white;
+    font-family: 'Playfair Display', Georgia, serif;
+    display: grid;
+    place-items: center;
+    padding: 32px;
+}
+
+.app {
+    width: min(760px, 100%);
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(118, 125, 133, 0.12);
+    border-radius: 28px;
+    box-shadow: 0 32px 80px rgba(9, 78, 226, 0.42);
+    padding: 32px;
+    backdrop-filter: blur(18px);
+}
+
+.app > h1 {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    letter-spacing: 0.03em;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.input-header {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+#date {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+}
+
+.todo-input {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+}
+
+#item {
+    width: 100%;
+    border: 1px solid rgba(122, 150, 200, 0.18);
+    background: rgba(120, 88, 88, 0.04);
+    color: rgb(142, 103, 103);
+    border-radius: 14px;
+    padding: 16px 18px;
+    font-size: 1rem;
+    outline: none;
+}
+
+#item::placeholder {
+    color: var(--muted);
+}
+
+#enter {
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #38bdf8, #60a5fa);
+    color: #0f172a;
+    font-weight: 700;
+    padding: 0 22px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#enter:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 18px 30px rgba(24, 109, 146, 0.18);
+}
+
+.to-do-list {
+    display: grid;
+    gap: 18px;
+}
+
+.item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 22px;
+    padding: 18px;
+    display: grid;
+    gap: 16px;
+}
+
+.input-controller {
+    display: grid;
+    gap: 14px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 80px;
+    resize: none;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.04);
+    color: white;
+    padding: 16px;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+textarea:disabled {
+    opacity: 0.85;
+}
+
+textarea.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.edit-controller,
+.update-controller {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.edit-controller i,
+.update-controller button {
+    cursor: pointer;
+}
+
+.edit-controller .checkBtn {
+    color: white;
+}
+
+.edit-controller .checkBtn.checked {
+    color: #22c55e;
+}
+
+.edit-controller i {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    color: white;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.edit-controller i:hover {
+    transform: translateY(-1px);
+    background: brown;
+}
+
+.update-controller {
+    display: none;
+}
+
+button.saveBtn,
+button.cancelBtn {
+    border: none;
+    border-radius: 14px;
+    padding: 12px 18px;
+    font-weight: 600;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+button.saveBtn {
+    background: brown;
+    color: #0f172a;
+}
+
+button.cancelBtn {
+    background: rgba(148, 163, 184, 0.12);
+    color: white;
+}
+
+button.saveBtn:hover,
+button.cancelBtn:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+}
+
+@media (max-width: 640px) {
+    .app {
+        padding: 22px;
+    }
+
+    .input-header {
+        gap: 16px;
+    }
+
+    .todo-input {
+        grid-template-columns: 1fr;
+    }
+
+    #enter {
+        width: 100%;
+    }
+}
